@@ -394,15 +394,6 @@ async function fetchGA4Data(propertyId, token, onProgress) {
 }
 
 // Reference to fix the extractRows call for traffic (variable name fix)
-function extractRows(report, dimKeys = [], metKeys = []) {
-  const rows = report.rows || [];
-  return rows.map(row => {
-    const obj = {};
-    dimKeys.forEach((k, i) => { obj[k] = row.dimensionValues?.[i]?.value ?? ""; });
-    metKeys.forEach((k, i) => { obj[k] = parseFloat(row.metricValues?.[i]?.value ?? 0); });
-    return obj;
-  });
-}
 
 // ════════════════════════════════════════════════════════════════════════════════
 // MOCK DATA (Demo mode)
